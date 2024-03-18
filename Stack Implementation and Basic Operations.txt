@@ -1,0 +1,88 @@
+Stack Implementation--
+
+Basic Operations of Stack are--
+1.push() to insert an element into the stack
+2.pop() to remove an element from the stack
+3.top() Returns the top element of the stack.
+4.isEmpty() returns true if stack is empty else false.
+5.size() returns the size of stack.
+
+Java--
+
+//Stack Implementation
+class Stack { 
+	static final int MAX = 1000; 
+	int top; 
+	int a[] = new int[MAX]; // Maximum size of Stack 
+    // Checking Whether the stack is empty or not
+	boolean isEmpty() 
+	{ 
+		return (top < 0); 
+	} 
+	Stack() 
+	{ 
+		top = -1; 
+	} 
+    // Pushing an element into the stack
+	boolean push(int x) 
+	{ 
+		if (top >= (MAX - 1)) { 
+			System.out.println("Stack Overflow"); 
+			return false; 
+		} 
+		else { 
+			a[++top] = x; 
+			System.out.println(x + " is pushed into stack"); 
+			return true; 
+		} 
+	} 
+    //To Remove The top most element from the stack
+	int pop() 
+	{ 
+		if (top < 0) { 
+			System.out.println("Stack Underflow"); 
+			return 0; 
+		} 
+		else { 
+			int x = a[top--]; 
+			return x; 
+		} 
+	} 
+    //To Print the Top most element
+	int peek() 
+	{ 
+		if (top < 0) { 
+			System.out.println("Stack Underflow"); 
+			return 0; 
+		} 
+		else { 
+			int x = a[top]; 
+			return x; 
+		} 
+	} 
+	
+	void print(){ 
+	for(int i = top;i>-1;i--){ 
+	System.out.print(" "+ a[i]); 
+	} 
+} 
+} 
+
+//Main Class
+class Main { 
+	public static void main(String args[]) 
+	{ 
+		Stack s = new Stack(); 
+		s.push(1); 
+		s.push(2); 
+		s.push(3); 
+		System.out.println(s.pop() + " is Popped from stack"); 
+		System.out.println("Top element of the Stack is :" + s.peek()); 
+		System.out.print("Elements present in stack are :"); 
+		s.print(); 
+	} 
+} 
+
+
+
+
